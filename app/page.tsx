@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Header from '../components/Header';
-import WaitlistModal from '../components/WaitlistModal';
+import { useState } from "react";
+import Header from "./components/Header";
+import WaitlistModal from "./components/WaitlistModal";
 
 export default function LandingPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -34,12 +34,14 @@ export default function LandingPage() {
 
             {/* Description */}
             <p className="text-gray-400 text-lg leading-relaxed max-w-xl">
-              Teseract is your financial command center: net worth, missions, daily spending and visual goals — all in one place, designed like an RPG.
+              Teseract is your financial command center: net worth, missions,
+              daily spending and visual goals — all in one place, designed like
+              an RPG.
             </p>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <button 
+              <button
                 onClick={() => setIsModalOpen(true)}
                 className="px-6 py-3 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 text-white hover:from-blue-600 hover:to-blue-700 transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-500/30 font-medium"
               >
@@ -65,7 +67,14 @@ export default function LandingPage() {
                   fill="none"
                   className="text-white"
                 >
-                  <circle cx="10" cy="10" r="8" stroke="currentColor" strokeWidth="2" fill="none" />
+                  <circle
+                    cx="10"
+                    cy="10"
+                    r="8"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    fill="none"
+                  />
                   <path d="M8 6L14 10L8 14V6Z" fill="currentColor" />
                 </svg>
                 Watch dashboard demo
@@ -74,9 +83,15 @@ export default function LandingPage() {
 
             {/* Feature List */}
             <div className="space-y-2 pt-4">
-              <p className="text-gray-400 text-sm">Track net worth, debts & cashflow</p>
-              <p className="text-gray-400 text-sm">Complete missions, unlock achievements</p>
-              <p className="text-gray-400 text-sm">Perfect for solo users & small teams</p>
+              <p className="text-gray-400 text-sm">
+                Track net worth, debts & cashflow
+              </p>
+              <p className="text-gray-400 text-sm">
+                Complete missions, unlock achievements
+              </p>
+              <p className="text-gray-400 text-sm">
+                Perfect for solo users & small teams
+              </p>
             </div>
           </div>
 
@@ -85,25 +100,35 @@ export default function LandingPage() {
             <div className="relative bg-gradient-to-br from-blue-900/40 via-purple-900/30 to-blue-800/40 backdrop-blur-sm rounded-2xl p-6 border border-blue-500/20 shadow-2xl shadow-blue-500/20">
               {/* Glow effect */}
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/10 to-purple-500/10 blur-xl"></div>
-              
+
               {/* Dashboard Content */}
               <div className="relative z-10">
                 {/* Dashboard Title */}
                 <div className="flex items-center justify-between mb-6">
-                  <h3 className="text-white font-semibold">Dashboard · Teseract</h3>
+                  <h3 className="text-white font-semibold">
+                    Dashboard · Teseract
+                  </h3>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-6">
                   {/* Left Column: Your Character */}
                   <div className="space-y-4">
-                    <div className="text-white font-semibold mb-3">Your character</div>
-                    
+                    <div className="text-white font-semibold mb-3">
+                      Your character
+                    </div>
+
                     {/* Level Badge */}
                     <div className="flex items-center gap-3 mb-4">
                       <div className="relative">
                         <svg width="50" height="50" viewBox="0 0 50 50">
                           <defs>
-                            <linearGradient id="levelGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <linearGradient
+                              id="levelGradient"
+                              x1="0%"
+                              y1="0%"
+                              x2="100%"
+                              y2="100%"
+                            >
                               <stop offset="0%" stopColor="#60a5fa" />
                               <stop offset="100%" stopColor="#3b82f6" />
                             </linearGradient>
@@ -121,7 +146,9 @@ export default function LandingPage() {
                       </div>
                       <div>
                         <div className="text-white text-sm">Class: Builder</div>
-                        <div className="text-gray-400 text-xs">Title: Net Worth Architect</div>
+                        <div className="text-gray-400 text-xs">
+                          Title: Net Worth Architect
+                        </div>
                       </div>
                     </div>
 
@@ -143,11 +170,20 @@ export default function LandingPage() {
                     <div className="space-y-3 mt-4">
                       {/* Net Worth */}
                       <div className="bg-gray-800/50 rounded-lg p-3 border border-gray-700/50">
-                        <div className="text-gray-400 text-xs mb-1">Net worth</div>
+                        <div className="text-gray-400 text-xs mb-1">
+                          Net worth
+                        </div>
                         <div className="flex items-center justify-between">
-                          <span className="text-white font-semibold">€ 18,450</span>
+                          <span className="text-white font-semibold">
+                            € 18,450
+                          </span>
                           <div className="flex items-center gap-1 text-green-400 text-xs">
-                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                            <svg
+                              width="12"
+                              height="12"
+                              viewBox="0 0 12 12"
+                              fill="none"
+                            >
                               <path d="M6 2L9 7H3L6 2Z" fill="currentColor" />
                             </svg>
                             +€1,250 this month
@@ -157,20 +193,35 @@ export default function LandingPage() {
 
                       {/* Monthly Cashflow */}
                       <div className="bg-gray-800/50 rounded-lg p-3 border border-gray-700/50">
-                        <div className="text-gray-400 text-xs mb-1">Monthly cashflow</div>
+                        <div className="text-gray-400 text-xs mb-1">
+                          Monthly cashflow
+                        </div>
                         <div className="flex items-center justify-between">
-                          <span className="text-white font-semibold">+€ 420</span>
-                          <span className="text-gray-400 text-xs">Stable · 4 sources</span>
+                          <span className="text-white font-semibold">
+                            +€ 420
+                          </span>
+                          <span className="text-gray-400 text-xs">
+                            Stable · 4 sources
+                          </span>
                         </div>
                       </div>
 
                       {/* Total Debt */}
                       <div className="bg-gray-800/50 rounded-lg p-3 border border-gray-700/50">
-                        <div className="text-gray-400 text-xs mb-1">Total debt</div>
+                        <div className="text-gray-400 text-xs mb-1">
+                          Total debt
+                        </div>
                         <div className="flex items-center justify-between">
-                          <span className="text-white font-semibold">€ 14,450</span>
+                          <span className="text-white font-semibold">
+                            € 14,450
+                          </span>
                           <div className="flex items-center gap-1 text-red-400 text-xs">
-                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                            <svg
+                              width="12"
+                              height="12"
+                              viewBox="0 0 12 12"
+                              fill="none"
+                            >
                               <path d="M6 10L3 5H9L6 10Z" fill="currentColor" />
                             </svg>
                             -€350 vs last month
@@ -180,10 +231,14 @@ export default function LandingPage() {
 
                       {/* Savings Rate */}
                       <div className="bg-gray-800/50 rounded-lg p-3 border border-gray-700/50">
-                        <div className="text-gray-400 text-xs mb-1">Savings rate</div>
+                        <div className="text-gray-400 text-xs mb-1">
+                          Savings rate
+                        </div>
                         <div className="flex items-center justify-between">
                           <span className="text-white font-semibold">32%</span>
-                          <span className="text-green-400 text-xs">On track for goals</span>
+                          <span className="text-green-400 text-xs">
+                            On track for goals
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -191,8 +246,10 @@ export default function LandingPage() {
 
                   {/* Right Column: Missions */}
                   <div className="space-y-4">
-                    <div className="text-white font-semibold mb-3">Missions · Education</div>
-                    
+                    <div className="text-white font-semibold mb-3">
+                      Missions · Education
+                    </div>
+
                     {/* Mission Cards */}
                     <div className="space-y-3">
                       {/* Mission 1 */}
@@ -204,7 +261,10 @@ export default function LandingPage() {
                           Reward: +150 XP · "Discipline" badge
                         </div>
                         <div className="w-full bg-gray-700 rounded-full h-1.5">
-                          <div className="bg-blue-500 h-1.5 rounded-full" style={{ width: "60%" }}></div>
+                          <div
+                            className="bg-blue-500 h-1.5 rounded-full"
+                            style={{ width: "60%" }}
+                          ></div>
                         </div>
                       </div>
 
@@ -217,7 +277,10 @@ export default function LandingPage() {
                           Reward: +110 XP · Faster freedom
                         </div>
                         <div className="w-full bg-gray-700 rounded-full h-1.5">
-                          <div className="bg-blue-500 h-1.5 rounded-full" style={{ width: "80%" }}></div>
+                          <div
+                            className="bg-blue-500 h-1.5 rounded-full"
+                            style={{ width: "80%" }}
+                          ></div>
                         </div>
                       </div>
 
@@ -230,15 +293,24 @@ export default function LandingPage() {
                           Reward: +90 XP · Level UP
                         </div>
                         <div className="w-full bg-gray-700 rounded-full h-1.5">
-                          <div className="bg-blue-500 h-1.5 rounded-full" style={{ width: "40%" }}></div>
+                          <div
+                            className="bg-blue-500 h-1.5 rounded-full"
+                            style={{ width: "40%" }}
+                          ></div>
                         </div>
                       </div>
 
                       {/* SNAPSHOT Card - Overlapping */}
                       <div className="bg-gradient-to-br from-blue-600/40 to-purple-600/40 rounded-lg p-3 border border-blue-500/30 -mt-2 ml-4 relative z-20">
-                        <div className="text-gray-300 text-xs mb-1">SNAPSHOT</div>
-                        <div className="text-white font-semibold text-lg">+€ 1,670</div>
-                        <div className="text-gray-400 text-xs">Net worth change in the last 30 days</div>
+                        <div className="text-gray-300 text-xs mb-1">
+                          SNAPSHOT
+                        </div>
+                        <div className="text-white font-semibold text-lg">
+                          +€ 1,670
+                        </div>
+                        <div className="text-gray-400 text-xs">
+                          Net worth change in the last 30 days
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -253,25 +325,25 @@ export default function LandingPage() {
           <div className="relative group perspective-1000">
             {/* Glow effect behind */}
             <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-blue-500/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            
+
             {/* Image container with rotation and hover effects */}
             <div className="relative transform transition-all duration-500 group-hover:scale-[1.02] group-hover:-rotate-2 rotate-1">
               {/* Border glow */}
               <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/50 via-purple-500/50 to-blue-500/50 rounded-2xl blur opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
+
               {/* Dashboard image */}
               <div className="relative rounded-2xl overflow-hidden border border-blue-500/30 shadow-2xl shadow-blue-500/20 bg-gradient-to-br from-slate-900 to-blue-950">
-                <img 
-                  src="/assets/tsseract_dashboard.png" 
-                  alt="Teseract Dashboard" 
+                <img
+                  src="/assets/tsseract_dashboard.png"
+                  alt="Teseract Dashboard"
                   className="w-full h-auto object-contain rounded-2xl"
                 />
-                
+
                 {/* Shine effect on hover */}
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
               </div>
             </div>
-            
+
             {/* Floating elements for extra depth */}
             <div className="absolute -top-4 -right-4 w-24 h-24 bg-blue-500/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-purple-500/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
@@ -282,10 +354,12 @@ export default function LandingPage() {
         <section id="features" className="mt-32 py-20">
           <div className="text-center mb-20">
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
-              Everything you need to <span className="text-blue-400">master your finances</span>
+              Everything you need to{" "}
+              <span className="text-blue-400">master your finances</span>
             </h2>
             <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              Powerful features designed to make financial management engaging and rewarding
+              Powerful features designed to make financial management engaging
+              and rewarding
             </p>
           </div>
 
@@ -295,9 +369,9 @@ export default function LandingPage() {
               <div className="relative group perspective-1000 scale-[1.10] md:scale-[1.06] lg:scale-[1.04] transition-transform duration-500">
                 <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-blue-500/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative rounded-2xl overflow-hidden border border-blue-500/30 shadow-2xl shadow-blue-500/20 bg-gradient-to-br from-slate-900 to-blue-950 transform rotate-1 group-hover:-rotate-2 group-hover:scale-[1.05] transition-all duration-500">
-                  <img 
-                    src="/assets/assets.png" 
-                    alt="Assets Management" 
+                  <img
+                    src="/assets/assets.png"
+                    alt="Assets Management"
                     className="w-full h-auto object-contain rounded-2xl transition-transform duration-700"
                   />
                 </div>
@@ -305,28 +379,64 @@ export default function LandingPage() {
               <div className="space-y-6">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/20 border border-blue-500/30 w-fit">
                   <div className="w-2 h-2 rounded-full bg-blue-500"></div>
-                  <span className="text-blue-400 text-sm font-medium">Feature</span>
+                  <span className="text-blue-400 text-sm font-medium">
+                    Feature
+                  </span>
                 </div>
-                <h3 className="text-4xl lg:text-5xl font-bold text-white">Track Your Assets</h3>
+                <h3 className="text-4xl lg:text-5xl font-bold text-white">
+                  Track Your Assets
+                </h3>
                 <p className="text-gray-400 text-lg leading-relaxed">
-                  Monitor all your assets in one place - cash, investments, property, and more. See your net worth grow in real-time with beautiful visualizations and detailed breakdowns.
+                  Monitor all your assets in one place - cash, investments,
+                  property, and more. See your net worth grow in real-time with
+                  beautiful visualizations and detailed breakdowns.
                 </p>
                 <ul className="space-y-3 text-gray-300">
                   <li className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-6 h-6 text-blue-400 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     <span>Real-time asset tracking</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-6 h-6 text-blue-400 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     <span>Multiple asset categories</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-6 h-6 text-blue-400 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     <span>Net worth visualization</span>
                   </li>
@@ -341,28 +451,64 @@ export default function LandingPage() {
               <div className="space-y-6">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/20 border border-blue-500/30 w-fit">
                   <div className="w-2 h-2 rounded-full bg-blue-500"></div>
-                  <span className="text-blue-400 text-sm font-medium">Feature</span>
+                  <span className="text-blue-400 text-sm font-medium">
+                    Feature
+                  </span>
                 </div>
-                <h3 className="text-4xl lg:text-5xl font-bold text-white">Manage Debts</h3>
+                <h3 className="text-4xl lg:text-5xl font-bold text-white">
+                  Manage Debts
+                </h3>
                 <p className="text-gray-400 text-lg leading-relaxed">
-                  Track all your debts, see payment schedules, and watch your debt decrease as you complete missions. Get a clear view of your financial obligations and progress.
+                  Track all your debts, see payment schedules, and watch your
+                  debt decrease as you complete missions. Get a clear view of
+                  your financial obligations and progress.
                 </p>
                 <ul className="space-y-3 text-gray-300">
                   <li className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-6 h-6 text-blue-400 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     <span>Complete debt overview</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-6 h-6 text-blue-400 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     <span>Payment schedule tracking</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-6 h-6 text-blue-400 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     <span>Progress visualization</span>
                   </li>
@@ -371,9 +517,9 @@ export default function LandingPage() {
               <div className="relative group perspective-1000 scale-[1.10] md:scale-[1.06] lg:scale-[1.04] transition-transform duration-500">
                 <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-blue-500/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative rounded-2xl overflow-hidden border border-blue-500/30 shadow-2xl shadow-blue-500/20 bg-gradient-to-br from-slate-900 to-blue-950 transform rotate-1 group-hover:-rotate-2 group-hover:scale-[1.05] transition-all duration-500">
-                  <img 
-                    src="/assets/debts.png" 
-                    alt="Debt Management" 
+                  <img
+                    src="/assets/debts.png"
+                    alt="Debt Management"
                     className="w-full h-auto object-contain rounded-2xl transition-transform duration-700"
                   />
                 </div>
@@ -387,9 +533,9 @@ export default function LandingPage() {
               <div className="relative group perspective-1000 scale-[1.10] md:scale-[1.06] lg:scale-[1.04] transition-transform duration-500">
                 <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-blue-500/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative rounded-2xl overflow-hidden border border-blue-500/30 shadow-2xl shadow-blue-500/20 bg-gradient-to-br from-slate-900 to-blue-950 transform rotate-1 group-hover:-rotate-2 group-hover:scale-[1.05] transition-all duration-500">
-                  <img 
-                    src="/assets/daily_spending.png" 
-                    alt="Daily Spending" 
+                  <img
+                    src="/assets/daily_spending.png"
+                    alt="Daily Spending"
                     className="w-full h-auto object-contain rounded-2xl transition-transform duration-700"
                   />
                 </div>
@@ -397,28 +543,64 @@ export default function LandingPage() {
               <div className="space-y-6">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/20 border border-blue-500/30 w-fit">
                   <div className="w-2 h-2 rounded-full bg-blue-500"></div>
-                  <span className="text-blue-400 text-sm font-medium">Feature</span>
+                  <span className="text-blue-400 text-sm font-medium">
+                    Feature
+                  </span>
                 </div>
-                <h3 className="text-4xl lg:text-5xl font-bold text-white">Daily Spending</h3>
+                <h3 className="text-4xl lg:text-5xl font-bold text-white">
+                  Daily Spending
+                </h3>
                 <p className="text-gray-400 text-lg leading-relaxed">
-                  Monitor your daily expenses, set budgets, and get insights into your spending patterns. Understand where your money goes and make smarter financial decisions.
+                  Monitor your daily expenses, set budgets, and get insights
+                  into your spending patterns. Understand where your money goes
+                  and make smarter financial decisions.
                 </p>
                 <ul className="space-y-3 text-gray-300">
                   <li className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-6 h-6 text-blue-400 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     <span>Real-time expense tracking</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-6 h-6 text-blue-400 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     <span>Smart budget management</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-6 h-6 text-blue-400 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     <span>Spending insights & analytics</span>
                   </li>
@@ -433,28 +615,64 @@ export default function LandingPage() {
               <div className="space-y-6">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/20 border border-blue-500/30 w-fit">
                   <div className="w-2 h-2 rounded-full bg-blue-500"></div>
-                  <span className="text-blue-400 text-sm font-medium">Feature</span>
+                  <span className="text-blue-400 text-sm font-medium">
+                    Feature
+                  </span>
                 </div>
-                <h3 className="text-4xl lg:text-5xl font-bold text-white">Income Tracking</h3>
+                <h3 className="text-4xl lg:text-5xl font-bold text-white">
+                  Income Tracking
+                </h3>
                 <p className="text-gray-400 text-lg leading-relaxed">
-                  Track all your income sources, see cashflow trends, and understand your financial health. Get a complete picture of your earnings and plan for the future.
+                  Track all your income sources, see cashflow trends, and
+                  understand your financial health. Get a complete picture of
+                  your earnings and plan for the future.
                 </p>
                 <ul className="space-y-3 text-gray-300">
                   <li className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-6 h-6 text-blue-400 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     <span>Multiple income sources</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-6 h-6 text-blue-400 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     <span>Cashflow visualization</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-6 h-6 text-blue-400 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     <span>Income trend analysis</span>
                   </li>
@@ -463,9 +681,9 @@ export default function LandingPage() {
               <div className="relative group perspective-1000 scale-[1.10] md:scale-[1.06] lg:scale-[1.04] transition-transform duration-500">
                 <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-blue-500/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative rounded-2xl overflow-hidden border border-blue-500/30 shadow-2xl shadow-blue-500/20 bg-gradient-to-br from-slate-900 to-blue-950 transform rotate-1 group-hover:-rotate-2 group-hover:scale-[1.05] transition-all duration-500">
-                  <img 
-                    src="/assets/income.png" 
-                    alt="Income Tracking" 
+                  <img
+                    src="/assets/income.png"
+                    alt="Income Tracking"
                     className="w-full h-auto object-contain rounded-2xl transition-transform duration-700"
                   />
                 </div>
@@ -479,9 +697,9 @@ export default function LandingPage() {
               <div className="relative group perspective-1000 scale-[1.10] md:scale-[1.06] lg:scale-[1.04] transition-transform duration-500">
                 <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-blue-500/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative rounded-2xl overflow-hidden border border-blue-500/30 shadow-2xl shadow-blue-500/20 bg-gradient-to-br from-slate-900 to-blue-950 transform rotate-1 group-hover:-rotate-2 group-hover:scale-[1.05] transition-all duration-500">
-                  <img 
-                    src="/assets/subscriptions.png" 
-                    alt="Subscription Management" 
+                  <img
+                    src="/assets/subscriptions.png"
+                    alt="Subscription Management"
                     className="w-full h-auto object-contain rounded-2xl transition-transform duration-700"
                   />
                 </div>
@@ -489,28 +707,64 @@ export default function LandingPage() {
               <div className="space-y-6">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/20 border border-blue-500/30 w-fit">
                   <div className="w-2 h-2 rounded-full bg-blue-500"></div>
-                  <span className="text-blue-400 text-sm font-medium">Feature</span>
+                  <span className="text-blue-400 text-sm font-medium">
+                    Feature
+                  </span>
                 </div>
-                <h3 className="text-4xl lg:text-5xl font-bold text-white">Subscription Management</h3>
+                <h3 className="text-4xl lg:text-5xl font-bold text-white">
+                  Subscription Management
+                </h3>
                 <p className="text-gray-400 text-lg leading-relaxed">
-                  Keep track of all your subscriptions, avoid forgotten charges, and optimize your recurring expenses. Never lose track of what you're paying for.
+                  Keep track of all your subscriptions, avoid forgotten charges,
+                  and optimize your recurring expenses. Never lose track of what
+                  you're paying for.
                 </p>
                 <ul className="space-y-3 text-gray-300">
                   <li className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-6 h-6 text-blue-400 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     <span>Complete subscription list</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-6 h-6 text-blue-400 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     <span>Renewal date tracking</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-6 h-6 text-blue-400 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     <span>Cost optimization insights</span>
                   </li>
@@ -525,28 +779,64 @@ export default function LandingPage() {
               <div className="space-y-6">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/20 border border-blue-500/30 w-fit">
                   <div className="w-2 h-2 rounded-full bg-blue-500"></div>
-                  <span className="text-blue-400 text-sm font-medium">Feature</span>
+                  <span className="text-blue-400 text-sm font-medium">
+                    Feature
+                  </span>
                 </div>
-                <h3 className="text-4xl lg:text-5xl font-bold text-white">Missions & Achievements</h3>
+                <h3 className="text-4xl lg:text-5xl font-bold text-white">
+                  Missions & Achievements
+                </h3>
                 <p className="text-gray-400 text-lg leading-relaxed">
-                  Complete financial missions, earn XP, unlock achievements, and level up your financial game. Turn financial management into an engaging experience.
+                  Complete financial missions, earn XP, unlock achievements, and
+                  level up your financial game. Turn financial management into
+                  an engaging experience.
                 </p>
                 <ul className="space-y-3 text-gray-300">
                   <li className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-6 h-6 text-blue-400 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     <span>Gamified financial goals</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-6 h-6 text-blue-400 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     <span>XP and leveling system</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-6 h-6 text-blue-400 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     <span>Unlockable achievements</span>
                   </li>
@@ -555,9 +845,9 @@ export default function LandingPage() {
               <div className="relative group perspective-1000 scale-[1.10] md:scale-[1.06] lg:scale-[1.04] transition-transform duration-500">
                 <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-blue-500/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative rounded-2xl overflow-hidden border border-blue-500/30 shadow-2xl shadow-blue-500/20 bg-gradient-to-br from-slate-900 to-blue-950 transform rotate-1 group-hover:-rotate-2 group-hover:scale-[1.05] transition-all duration-500">
-                  <img 
-                    src="/assets/financial_inventory_missions.png" 
-                    alt="Missions & Achievements" 
+                  <img
+                    src="/assets/financial_inventory_missions.png"
+                    alt="Missions & Achievements"
                     className="w-full h-auto object-contain rounded-2xl transition-transform duration-700"
                   />
                 </div>
@@ -581,34 +871,36 @@ export default function LandingPage() {
             {[
               {
                 q: "What is Teseract?",
-                a: "Teseract is a gamified financial management platform that turns your finances into an RPG-style game. Track your net worth, complete missions, unlock achievements, and level up as you improve your financial health."
+                a: "Teseract is a gamified financial management platform that turns your finances into an RPG-style game. Track your net worth, complete missions, unlock achievements, and level up as you improve your financial health.",
               },
               {
                 q: "How does the gamification work?",
-                a: "You earn XP by completing financial missions like saving money, paying off debt, or learning about finance. As you level up, you unlock new titles, badges, and achievements that reflect your financial progress."
+                a: "You earn XP by completing financial missions like saving money, paying off debt, or learning about finance. As you level up, you unlock new titles, badges, and achievements that reflect your financial progress.",
               },
               {
                 q: "Is my financial data secure?",
-                a: "Absolutely. We use bank-level encryption to protect your data. Your financial information is encrypted both in transit and at rest, and we never share your data with third parties."
+                a: "Absolutely. We use bank-level encryption to protect your data. Your financial information is encrypted both in transit and at rest, and we never share your data with third parties.",
               },
               {
                 q: "Can I use Teseract for free?",
-                a: "Teseract offers a free tier with basic features. Premium plans unlock advanced analytics, unlimited missions, and priority support. Join our waitlist to get early access and special pricing."
+                a: "Teseract offers a free tier with basic features. Premium plans unlock advanced analytics, unlimited missions, and priority support. Join our waitlist to get early access and special pricing.",
               },
               {
                 q: "What currencies are supported?",
-                a: "Currently, Teseract supports EUR, USD, GBP, and other major currencies. We're continuously adding support for more currencies based on user demand."
+                a: "Currently, Teseract supports EUR, USD, GBP, and other major currencies. We're continuously adding support for more currencies based on user demand.",
               },
               {
                 q: "When will Teseract be available?",
-                a: "We're currently in beta testing. Join our waitlist to get early access and be notified when we launch publicly. Early supporters will receive exclusive benefits and discounts."
-              }
+                a: "We're currently in beta testing. Join our waitlist to get early access and be notified when we launch publicly. Early supporters will receive exclusive benefits and discounts.",
+              },
             ].map((faq, index) => (
-              <div 
+              <div
                 key={index}
                 className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl p-6 border border-gray-700/50 hover:border-blue-500/50 transition-all"
               >
-                <h3 className="text-lg font-semibold text-white mb-2">{faq.q}</h3>
+                <h3 className="text-lg font-semibold text-white mb-2">
+                  {faq.q}
+                </h3>
                 <p className="text-gray-400 text-sm leading-relaxed">{faq.a}</p>
               </div>
             ))}
@@ -624,14 +916,18 @@ export default function LandingPage() {
                 Ready to level up your finances?
               </h2>
               <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-                Join thousands of people who are turning their finances into a game they can finally win.
+                Join thousands of people who are turning their finances into a
+                game they can finally win.
               </p>
               <button
                 onClick={() => setIsModalOpen(true)}
                 className="px-8 py-4 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 text-white hover:from-blue-600 hover:to-blue-700 transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-500/30 font-medium mx-auto"
               >
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M10 0L12 7L19 9L12 11L10 18L8 11L1 9L8 7L10 0Z" fill="currentColor" />
+                  <path
+                    d="M10 0L12 7L19 9L12 11L10 18L8 11L1 9L8 7L10 0Z"
+                    fill="currentColor"
+                  />
                 </svg>
                 Get Early Access
               </button>
@@ -649,9 +945,23 @@ export default function LandingPage() {
                 <div className="relative">
                   <svg width="32" height="32" viewBox="0 0 40 40">
                     <defs>
-                      <linearGradient id="footerLogo" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.9" />
-                        <stop offset="100%" stopColor="#3b82f6" stopOpacity="1" />
+                      <linearGradient
+                        id="footerLogo"
+                        x1="0%"
+                        y1="0%"
+                        x2="100%"
+                        y2="100%"
+                      >
+                        <stop
+                          offset="0%"
+                          stopColor="#60a5fa"
+                          stopOpacity="0.9"
+                        />
+                        <stop
+                          offset="100%"
+                          stopColor="#3b82f6"
+                          stopOpacity="1"
+                        />
                       </linearGradient>
                     </defs>
                     <polygon
@@ -671,25 +981,88 @@ export default function LandingPage() {
             <div>
               <h4 className="text-white font-semibold mb-4">Product</h4>
               <ul className="space-y-2">
-                <li><a href="#features" className="text-gray-400 hover:text-white text-sm transition-colors">Features</a></li>
-                <li><a href="#modules" className="text-gray-400 hover:text-white text-sm transition-colors">Modules</a></li>
-                <li><a href="#pricing" className="text-gray-400 hover:text-white text-sm transition-colors">Pricing</a></li>
+                <li>
+                  <a
+                    href="#features"
+                    className="text-gray-400 hover:text-white text-sm transition-colors"
+                  >
+                    Features
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#modules"
+                    className="text-gray-400 hover:text-white text-sm transition-colors"
+                  >
+                    Modules
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#pricing"
+                    className="text-gray-400 hover:text-white text-sm transition-colors"
+                  >
+                    Pricing
+                  </a>
+                </li>
               </ul>
             </div>
             <div>
               <h4 className="text-white font-semibold mb-4">Company</h4>
               <ul className="space-y-2">
-                <li><a href="#faq" className="text-gray-400 hover:text-white text-sm transition-colors">FAQ</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">About</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Contact</a></li>
+                <li>
+                  <a
+                    href="#faq"
+                    className="text-gray-400 hover:text-white text-sm transition-colors"
+                  >
+                    FAQ
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-gray-400 hover:text-white text-sm transition-colors"
+                  >
+                    About
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-gray-400 hover:text-white text-sm transition-colors"
+                  >
+                    Contact
+                  </a>
+                </li>
               </ul>
             </div>
             <div>
               <h4 className="text-white font-semibold mb-4">Legal</h4>
               <ul className="space-y-2">
-                <li><a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Terms</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Security</a></li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-gray-400 hover:text-white text-sm transition-colors"
+                  >
+                    Privacy
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-gray-400 hover:text-white text-sm transition-colors"
+                  >
+                    Terms
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-gray-400 hover:text-white text-sm transition-colors"
+                  >
+                    Security
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
@@ -702,8 +1075,10 @@ export default function LandingPage() {
       </footer>
 
       {/* Waitlist Modal */}
-      <WaitlistModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <WaitlistModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 }
-
