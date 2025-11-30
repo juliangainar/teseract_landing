@@ -292,13 +292,13 @@ export default function LandingPage() {
           {/* Feature 1: Track Your Assets - Image Left */}
           <div className="mb-32">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="relative group">
+              <div className="relative group perspective-1000 scale-[1.10] md:scale-[1.06] lg:scale-[1.04] transition-transform duration-500">
                 <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-blue-500/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative rounded-2xl overflow-hidden border border-blue-500/30 shadow-2xl shadow-blue-500/20 bg-gradient-to-br from-slate-900 to-blue-950">
+                <div className="relative rounded-2xl overflow-hidden border border-blue-500/30 shadow-2xl shadow-blue-500/20 bg-gradient-to-br from-slate-900 to-blue-950 transform rotate-1 group-hover:-rotate-2 group-hover:scale-[1.05] transition-all duration-500">
                   <img 
                     src="/assets/assets.png" 
                     alt="Assets Management" 
-                    className="w-full h-auto object-contain rounded-2xl group-hover:scale-[1.02] transition-transform duration-500"
+                    className="w-full h-auto object-contain rounded-2xl transition-transform duration-700"
                   />
                 </div>
               </div>
@@ -368,13 +368,13 @@ export default function LandingPage() {
                   </li>
                 </ul>
               </div>
-              <div className="relative group">
+              <div className="relative group perspective-1000 scale-[1.10] md:scale-[1.06] lg:scale-[1.04] transition-transform duration-500">
                 <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-blue-500/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative rounded-2xl overflow-hidden border border-blue-500/30 shadow-2xl shadow-blue-500/20 bg-gradient-to-br from-slate-900 to-blue-950">
+                <div className="relative rounded-2xl overflow-hidden border border-blue-500/30 shadow-2xl shadow-blue-500/20 bg-gradient-to-br from-slate-900 to-blue-950 transform rotate-1 group-hover:-rotate-2 group-hover:scale-[1.05] transition-all duration-500">
                   <img 
                     src="/assets/debts.png" 
                     alt="Debt Management" 
-                    className="w-full h-auto object-contain rounded-2xl group-hover:scale-[1.02] transition-transform duration-500"
+                    className="w-full h-auto object-contain rounded-2xl transition-transform duration-700"
                   />
                 </div>
               </div>
@@ -384,13 +384,13 @@ export default function LandingPage() {
           {/* Feature 3: Daily Spending - Image Left */}
           <div className="mb-32">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="relative group">
+              <div className="relative group perspective-1000 scale-[1.10] md:scale-[1.06] lg:scale-[1.04] transition-transform duration-500">
                 <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-blue-500/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative rounded-2xl overflow-hidden border border-blue-500/30 shadow-2xl shadow-blue-500/20 bg-gradient-to-br from-slate-900 to-blue-950">
+                <div className="relative rounded-2xl overflow-hidden border border-blue-500/30 shadow-2xl shadow-blue-500/20 bg-gradient-to-br from-slate-900 to-blue-950 transform rotate-1 group-hover:-rotate-2 group-hover:scale-[1.05] transition-all duration-500">
                   <img 
                     src="/assets/daily_spending.png" 
                     alt="Daily Spending" 
-                    className="w-full h-auto object-contain rounded-2xl group-hover:scale-[1.02] transition-transform duration-500"
+                    className="w-full h-auto object-contain rounded-2xl transition-transform duration-700"
                   />
                 </div>
               </div>
@@ -460,13 +460,13 @@ export default function LandingPage() {
                   </li>
                 </ul>
               </div>
-              <div className="relative group">
+              <div className="relative group perspective-1000 scale-[1.10] md:scale-[1.06] lg:scale-[1.04] transition-transform duration-500">
                 <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-blue-500/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative rounded-2xl overflow-hidden border border-blue-500/30 shadow-2xl shadow-blue-500/20 bg-gradient-to-br from-slate-900 to-blue-950">
+                <div className="relative rounded-2xl overflow-hidden border border-blue-500/30 shadow-2xl shadow-blue-500/20 bg-gradient-to-br from-slate-900 to-blue-950 transform rotate-1 group-hover:-rotate-2 group-hover:scale-[1.05] transition-all duration-500">
                   <img 
                     src="/assets/income.png" 
                     alt="Income Tracking" 
-                    className="w-full h-auto object-contain rounded-2xl group-hover:scale-[1.02] transition-transform duration-500"
+                    className="w-full h-auto object-contain rounded-2xl transition-transform duration-700"
                   />
                 </div>
               </div>
@@ -476,13 +476,13 @@ export default function LandingPage() {
           {/* Feature 5: Subscription Management - Image Left */}
           <div className="mb-32">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="relative group">
+              <div className="relative group perspective-1000 scale-[1.10] md:scale-[1.06] lg:scale-[1.04] transition-transform duration-500">
                 <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-blue-500/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative rounded-2xl overflow-hidden border border-blue-500/30 shadow-2xl shadow-blue-500/20 bg-gradient-to-br from-slate-900 to-blue-950">
+                <div className="relative rounded-2xl overflow-hidden border border-blue-500/30 shadow-2xl shadow-blue-500/20 bg-gradient-to-br from-slate-900 to-blue-950 transform rotate-1 group-hover:-rotate-2 group-hover:scale-[1.05] transition-all duration-500">
                   <img 
                     src="/assets/subscriptions.png" 
                     alt="Subscription Management" 
-                    className="w-full h-auto object-contain rounded-2xl group-hover:scale-[1.02] transition-transform duration-500"
+                    className="w-full h-auto object-contain rounded-2xl transition-transform duration-700"
                   />
                 </div>
               </div>
@@ -552,13 +552,13 @@ export default function LandingPage() {
                   </li>
                 </ul>
               </div>
-              <div className="relative group">
+              <div className="relative group perspective-1000 scale-[1.10] md:scale-[1.06] lg:scale-[1.04] transition-transform duration-500">
                 <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-blue-500/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative rounded-2xl overflow-hidden border border-blue-500/30 shadow-2xl shadow-blue-500/20 bg-gradient-to-br from-slate-900 to-blue-950">
+                <div className="relative rounded-2xl overflow-hidden border border-blue-500/30 shadow-2xl shadow-blue-500/20 bg-gradient-to-br from-slate-900 to-blue-950 transform rotate-1 group-hover:-rotate-2 group-hover:scale-[1.05] transition-all duration-500">
                   <img 
                     src="/assets/financial_inventory_missions.png" 
                     alt="Missions & Achievements" 
-                    className="w-full h-auto object-contain rounded-2xl group-hover:scale-[1.02] transition-transform duration-500"
+                    className="w-full h-auto object-contain rounded-2xl transition-transform duration-700"
                   />
                 </div>
               </div>
