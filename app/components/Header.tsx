@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 
 interface HeaderProps {
   onGetAccess?: () => void;
@@ -17,9 +17,20 @@ export default function Header({ onGetAccess }: HeaderProps) {
           {/* Logo - Hexagon with enhanced glow */}
           <div className="relative">
             <div className="absolute inset-0 blur-md opacity-50">
-              <svg width="32" height="32" viewBox="0 0 40 40" className="sm:w-10 sm:h-10">
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 40 40"
+                className="sm:w-10 sm:h-10"
+              >
                 <defs>
-                  <linearGradient id="hexGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <linearGradient
+                    id="hexGlow"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="100%"
+                  >
                     <stop offset="0%" stopColor="#60a5fa" stopOpacity="1" />
                     <stop offset="100%" stopColor="#3b82f6" stopOpacity="1" />
                   </linearGradient>
@@ -37,15 +48,21 @@ export default function Header({ onGetAccess }: HeaderProps) {
               className="relative drop-shadow-[0_0_8px_rgba(96,165,250,0.6)] sm:w-10 sm:h-10"
             >
               <defs>
-                <linearGradient id="hexGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <linearGradient
+                  id="hexGradient"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="100%"
+                >
                   <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.9" />
                   <stop offset="100%" stopColor="#3b82f6" stopOpacity="1" />
                 </linearGradient>
                 <filter id="glow">
-                  <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                  <feGaussianBlur stdDeviation="2" result="coloredBlur" />
                   <feMerge>
-                    <feMergeNode in="coloredBlur"/>
-                    <feMergeNode in="SourceGraphic"/>
+                    <feMergeNode in="coloredBlur" />
+                    <feMergeNode in="SourceGraphic" />
                   </feMerge>
                 </filter>
               </defs>
@@ -67,33 +84,64 @@ export default function Header({ onGetAccess }: HeaderProps) {
           </div>
           {/* Brand Name and Tagline */}
           <div className="flex flex-col">
-            <h1 className="text-white text-base sm:text-xl font-bold tracking-tight">Teseract</h1>
-            <p className="text-gray-400 text-[10px] sm:text-xs font-normal hidden sm:block">everything in one place</p>
+            <h1 className="text-white text-base sm:text-xl font-bold tracking-tight">
+              Teseract
+            </h1>
+            <p className="text-gray-400 text-[10px] sm:text-xs font-normal hidden sm:block">
+              everything in one place
+            </p>
           </div>
         </div>
 
         {/* Center: Navigation Links - Desktop */}
         <div className="hidden lg:flex items-center gap-6 xl:gap-8">
-          <a href="#features" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">
+          <a
+            href="#features"
+            className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
+          >
             Features
           </a>
-          <a href="#modules" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">
-            Modules
+          <a
+            href="#goals"
+            className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
+          >
+            Goals
           </a>
-          <a href="#pricing" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">
-            Pricing
+          <a
+            href="#ai-agent"
+            className="text-gray-300 hover:text-white transition-colors text-sm font-medium inline-flex items-center gap-2"
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 20 20"
+              fill="none"
+              className="text-indigo-200"
+              aria-hidden="true"
+            >
+              <path
+                d="M10 2l1.6 3.4L15 7l-3.4 1.6L10 12l-1.6-3.4L5 7l3.4-1.6L10 2z"
+                fill="currentColor"
+              />
+              <path
+                d="M4.5 11l.8 1.6 1.6.8-1.6.8L4.5 16l-.8-1.6-1.6-.8 1.6-.8.8-1.6zM15.5 4l.8 1.6 1.6.8-1.6.8-.8 1.6-.8-1.6-1.6-.8 1.6-.8.8-1.6z"
+                fill="currentColor"
+                opacity="0.75"
+              />
+            </svg>
+            AI Financial Agent
           </a>
-          <a href="#faq" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">
+          <a
+            href="#faq"
+            className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
+          >
             FAQ
           </a>
         </div>
 
         {/* Right: Action Buttons - Desktop */}
         <div className="hidden md:flex items-center gap-2 lg:gap-3">
-          <button className="px-3 lg:px-4 py-1.5 lg:py-2 rounded-lg bg-gray-900/80 border border-gray-700/50 text-white hover:bg-gray-800/90 hover:border-gray-600/50 transition-all text-xs lg:text-sm font-medium backdrop-blur-sm">
-            Sign in
-          </button>
-          <button 
+          <button
             onClick={onGetAccess}
             className="px-4 lg:px-5 py-2 lg:py-2.5 rounded-lg bg-gradient-to-r from-blue-500 via-blue-500 to-blue-600 text-white hover:from-blue-400 hover:via-blue-500 hover:to-blue-600 transition-all flex items-center gap-2 shadow-[0_4px_14px_0_rgba(59,130,246,0.5)] hover:shadow-[0_6px_20px_0_rgba(59,130,246,0.6)] text-xs lg:text-sm font-medium relative overflow-hidden group"
           >
@@ -113,7 +161,9 @@ export default function Header({ onGetAccess }: HeaderProps) {
               <circle cx="12" cy="4" r="1" fill="currentColor" />
               <circle cx="4" cy="12" r="0.5" fill="currentColor" />
             </svg>
-            <span className="relative z-10 hidden lg:inline">Get early access</span>
+            <span className="relative z-10 hidden lg:inline">
+              Join the waitlist
+            </span>
             <span className="relative z-10 lg:hidden">Get access</span>
           </button>
         </div>
@@ -125,12 +175,26 @@ export default function Header({ onGetAccess }: HeaderProps) {
           aria-label="Toggle menu"
         >
           {isMenuOpen ? (
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
               <line x1="18" y1="6" x2="6" y2="18" />
               <line x1="6" y1="6" x2="18" y2="18" />
             </svg>
           ) : (
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
               <line x1="3" y1="6" x2="21" y2="6" />
               <line x1="3" y1="12" x2="21" y2="12" />
               <line x1="3" y1="18" x2="21" y2="18" />
@@ -145,6 +209,13 @@ export default function Header({ onGetAccess }: HeaderProps) {
           {/* Navigation Links */}
           <div className="flex flex-col gap-4 mb-4">
             <a
+              href="#ai-agent"
+              onClick={() => setIsMenuOpen(false)}
+              className="text-gray-300 hover:text-white transition-colors text-sm font-medium py-2"
+            >
+              AI Financial Agent
+            </a>
+            <a
               href="#features"
               onClick={() => setIsMenuOpen(false)}
               className="text-gray-300 hover:text-white transition-colors text-sm font-medium py-2"
@@ -152,18 +223,11 @@ export default function Header({ onGetAccess }: HeaderProps) {
               Features
             </a>
             <a
-              href="#modules"
+              href="#goals"
               onClick={() => setIsMenuOpen(false)}
               className="text-gray-300 hover:text-white transition-colors text-sm font-medium py-2"
             >
-              Modules
-            </a>
-            <a
-              href="#pricing"
-              onClick={() => setIsMenuOpen(false)}
-              className="text-gray-300 hover:text-white transition-colors text-sm font-medium py-2"
-            >
-              Pricing
+              Goals
             </a>
             <a
               href="#faq"
@@ -176,10 +240,7 @@ export default function Header({ onGetAccess }: HeaderProps) {
 
           {/* Action Buttons */}
           <div className="flex flex-col gap-3 pt-4 border-t border-gray-700/50">
-            <button className="w-full px-4 py-2.5 rounded-lg bg-gray-900/80 border border-gray-700/50 text-white hover:bg-gray-800/90 hover:border-gray-600/50 transition-all text-sm font-medium backdrop-blur-sm">
-              Sign in
-            </button>
-            <button 
+            <button
               onClick={() => {
                 setIsMenuOpen(false);
                 onGetAccess?.();
@@ -209,4 +270,3 @@ export default function Header({ onGetAccess }: HeaderProps) {
     </header>
   );
 }
-

@@ -4,6 +4,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Teseract - Everything in one place",
   description: "Teseract landing page",
+  icons: {
+    icon: "/assets/teseract.png",
+  },
 };
 
 export default function RootLayout({
@@ -17,4 +20,3 @@ export default function RootLayout({
     </html>
   );
 }
-
