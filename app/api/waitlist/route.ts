@@ -36,8 +36,9 @@ export async function POST(request: Request) {
       );
     } catch (err) {
       console.error("Resend contact create failed", err);
+      const detail = err instanceof Error ? err.message : "Unknown error";
       return NextResponse.json(
-        { error: "Failed to create contact in Resend" },
+        { error: "Failed to create contact in Resend", detail },
         { status: 500 }
       );
     }
@@ -46,8 +47,9 @@ export async function POST(request: Request) {
     return NextResponse.json({ count: 0 });
   } catch (error) {
     console.error("Waitlist POST failed", error);
+    const detail = error instanceof Error ? error.message : "Unknown error";
     return NextResponse.json(
-      { error: "Unable to process request" },
+      { error: "Unable to process request", detail },
       { status: 500 }
     );
   }
