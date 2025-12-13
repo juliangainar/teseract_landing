@@ -1,32 +1,66 @@
 'use client';
 
-import { useState } from 'react';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { getCookie, setCookie } from 'cookies-next';
 
 interface WaitlistModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
+export default function WaitlistModal({
+  isOpen,
+  onClose,
+}: WaitlistModalProps) {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState('');
+  const [accepted, setAccepted] = useState(false);
+
+  useEffect(() => {
+    const consent = getCookie('teseract_consent');
+    if (consent === 'true') setAccepted(true);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    setIsSubmitting(false);
-    setIsSuccess(true);
-    
-    setTimeout(() => {
-      setIsSuccess(false);
-      setEmail('');
-      onClose();
-    }, 2000);
+    setError('');
+
+    if (!accepted) {
+      setError('Please accept the Privacy Policy and Terms to join.');
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      const res = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+
+      if (!res.ok) {
+        throw new Error('Failed to join waitlist');
+      }
+
+      const data = await res.json();
+
+      setIsSubmitting(false);
+      setIsSuccess(true);
+      setCookie('teseract_consent', 'true', { maxAge: 60 * 60 * 24 * 365 });
+
+      setTimeout(() => {
+        setIsSuccess(false);
+        setEmail('');
+        onClose();
+      }, 2000);
+    } catch (err) {
+      setIsSubmitting(false);
+      setError('Something went wrong. Please try again.');
+    }
   };
 
   if (!isOpen) return null;
@@ -87,16 +121,53 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                   className="w-full px-4 py-3 rounded-lg bg-gray-800/50 border border-gray-700/50 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
                 />
               </div>
+              <div className="flex items-start gap-3 text-sm text-gray-300">
+                <input
+                  id="consent"
+                  type="checkbox"
+                  checked={accepted}
+                  onChange={(e) => setAccepted(e.target.checked)}
+                  className="mt-1 h-4 w-4 rounded border-gray-600 bg-gray-800 text-blue-500 focus:ring-blue-500/50"
+                />
+                <label htmlFor="consent" className="leading-relaxed">
+                  I agree to the{' '}
+                  <Link
+                    href="/terms"
+                    className="text-blue-300 hover:text-blue-200 underline underline-offset-2"
+                    target="_blank"
+                  >
+                    Terms of Service
+                  </Link>{' '}
+                  and{' '}
+                  <Link
+                    href="/privacy"
+                    className="text-blue-300 hover:text-blue-200 underline underline-offset-2"
+                    target="_blank"
+                  >
+                    Privacy Policy
+                  </Link>
+                  .
+                </label>
+              </div>
+              {error && (
+                <p className="text-sm text-red-400 bg-red-500/10 border border-red-500/30 rounded-lg px-3 py-2">
+                  {error}
+                </p>
+              )}
               <button
                 type="submit"
-                disabled={isSubmitting}
+                disabled={isSubmitting || !accepted}
                 className="w-full px-6 py-3 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 text-white hover:from-blue-600 hover:to-blue-700 transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-500/30 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (
                   <>
                     <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      />
                     </svg>
                     Joining...
                   </>
@@ -130,4 +201,3 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
     </div>
   );
 }
-

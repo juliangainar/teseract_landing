@@ -1,11 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import WaitlistModal from "./components/WaitlistModal";
 
 export default function LandingPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [signups, setSignups] = useState(0);
+
+  useEffect(() => {
+    const target = 4820; // fictitious target count
+    const increment = Math.max(1, Math.floor(target / 120));
+    const id = setInterval(() => {
+      setSignups((prev) => {
+        const next = prev + increment;
+        return next >= target ? target : next;
+      });
+    }, 30);
+    return () => clearInterval(id);
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-950 via-slate-900 to-blue-950">
@@ -1198,8 +1211,16 @@ export default function LandingPage() {
           <div className="max-w-3xl mx-auto space-y-4">
             {[
               {
+                q: "Why Teseract?",
+                a: "At Teseract, we believe everyone should be the actor of their financial life, in a world that rarely teaches how to manage money. Teseract was born from a personal need: bringing everything into one place—no more scattered spreadsheets and apps—so you're not alone when starting out, growing wealth and looking for an easier way to manage it, or just needing clarity to make confident decisions. The AI Agent is here for that too.",
+              },
+              {
                 q: "What is Teseract?",
-                a: "Teseract is a gamified financial management platform that turns your finances into an RPG-style game. Track your net worth, complete missions, unlock achievements, and level up as you improve your financial health.",
+                a: "Teseract is a financial management platform with missions and levels to keep you consistent. Track your net worth, complete missions, set goals and achieve them, unlock achievements, and steadily improve your financial health.",
+              },
+              {
+                q: "What does the AI Agent do?",
+                a: "The AI Agent is fully connected to your financial environment. You can ask it about any money topic: it acts as a tailored advisor and educator, reviews monthly reports, analyzes your situation, and suggests clear improvements—all personalized to your case.",
               },
               {
                 q: "How does the gamification work?",
@@ -1211,11 +1232,7 @@ export default function LandingPage() {
               },
               {
                 q: "Can I use Teseract for free?",
-                a: "Teseract offers a free tier with basic features. Premium plans unlock advanced analytics, unlimited missions, and priority support. Join our waitlist to get early access and special pricing.",
-              },
-              {
-                q: "What currencies are supported?",
-                a: "Currently, Teseract supports EUR, USD, GBP, and other major currencies. We're continuously adding support for more currencies based on user demand.",
+                a: "Teseract offers a free tier with basic features. Premium plans unlock the AI Agent, advanced analytics and more. Join our waitlist to get early access and special pricing.",
               },
               {
                 q: "When will Teseract be available?",
@@ -1236,16 +1253,19 @@ export default function LandingPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="mt-32 py-20">
+        <section className="mt-16 py-20">
           <div className="relative bg-gradient-to-br from-blue-900/40 via-purple-900/30 to-blue-800/40 backdrop-blur-sm rounded-3xl p-12 border border-blue-500/30 shadow-2xl shadow-blue-500/20 text-center">
             <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-500/10 to-purple-500/10 blur-xl"></div>
             <div className="relative z-10">
               <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
-                Ready to level up your finances?
+                Ready to{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-cyan-200 to-teal-200 drop-shadow-[0_0_12px_rgba(125,211,252,0.35)]">
+                  level up
+                </span>{" "}
+                your finances?
               </h2>
               <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-                Join thousands of people who are turning their finances into a
-                game they can finally win.
+                Join us - turn your finances into a game you can finally win.
               </p>
               <button
                 onClick={() => setIsModalOpen(true)}
@@ -1257,8 +1277,17 @@ export default function LandingPage() {
                     fill="currentColor"
                   />
                 </svg>
-                Get Early Access
+                Join the Waitlist
               </button>
+              <div className="mt-8 inline-flex items-center gap-3 rounded-full bg-blue-500/10 border border-blue-500/30 px-4 py-2 text-sm text-blue-100 mx-auto">
+                <div className="flex items-center gap-2">
+                  <span className="text-lg font-semibold text-white">
+                    {signups.toLocaleString()}
+                  </span>
+                  <span>people already did</span>
+                </div>
+                <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              </div>
             </div>
           </div>
         </section>
@@ -1319,18 +1348,10 @@ export default function LandingPage() {
                 </li>
                 <li>
                   <a
-                    href="#modules"
+                    href="#ai-agent"
                     className="text-gray-400 hover:text-white text-sm transition-colors"
                   >
-                    Modules
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#pricing"
-                    className="text-gray-400 hover:text-white text-sm transition-colors"
-                  >
-                    Pricing
+                    AI Financial Agent
                   </a>
                 </li>
               </ul>
@@ -1346,22 +1367,6 @@ export default function LandingPage() {
                     FAQ
                   </a>
                 </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-gray-400 hover:text-white text-sm transition-colors"
-                  >
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-gray-400 hover:text-white text-sm transition-colors"
-                  >
-                    Contact
-                  </a>
-                </li>
               </ul>
             </div>
             <div>
@@ -1369,7 +1374,7 @@ export default function LandingPage() {
               <ul className="space-y-2">
                 <li>
                   <a
-                    href="#"
+                    href="/privacy"
                     className="text-gray-400 hover:text-white text-sm transition-colors"
                   >
                     Privacy
@@ -1377,7 +1382,7 @@ export default function LandingPage() {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="/terms"
                     className="text-gray-400 hover:text-white text-sm transition-colors"
                   >
                     Terms
@@ -1385,7 +1390,7 @@ export default function LandingPage() {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="/security"
                     className="text-gray-400 hover:text-white text-sm transition-colors"
                   >
                     Security
