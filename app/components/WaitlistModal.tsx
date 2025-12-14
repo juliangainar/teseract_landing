@@ -1,65 +1,71 @@
 'use client';
 
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import { getCookie, setCookie } from 'cookies-next';
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { getCookie, setCookie } from "cookies-next";
+import { Locale } from "@/data/locales";
+import { Copy } from "@/data/types";
 
 interface WaitlistModalProps {
+  locale?: Locale;
   isOpen: boolean;
   onClose: () => void;
+  copy: Copy["waitlist"];
 }
 
 export default function WaitlistModal({
+  locale = "en",
   isOpen,
   onClose,
+  copy,
 }: WaitlistModalProps) {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const [accepted, setAccepted] = useState(false);
 
   useEffect(() => {
-    const consent = getCookie('teseract_consent');
-    if (consent === 'true') setAccepted(true);
+    const consent = getCookie("teseract_consent");
+    if (consent === "true") setAccepted(true);
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setError('');
+    setError("");
 
     if (!accepted) {
-      setError('Please accept the Privacy Policy and Terms to join.');
+      setError(copy.errors.consent);
       setIsSubmitting(false);
       return;
     }
 
     try {
-      const res = await fetch('/api/waitlist', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const res = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
       });
 
       if (!res.ok) {
-        throw new Error('Failed to join waitlist');
+        throw new Error("Failed to join waitlist");
       }
 
-      const data = await res.json();
+      await res.json();
 
       setIsSubmitting(false);
       setIsSuccess(true);
-      setCookie('teseract_consent', 'true', { maxAge: 60 * 60 * 24 * 365 });
+      setCookie("teseract_consent", "true", { maxAge: 60 * 60 * 24 * 365 });
 
       setTimeout(() => {
         setIsSuccess(false);
-        setEmail('');
+        setEmail("");
         onClose();
       }, 2000);
     } catch (err) {
       setIsSubmitting(false);
-      setError('Something went wrong. Please try again.');
+      setError(copy.errors.generic);
     }
   };
 
@@ -104,11 +110,9 @@ export default function WaitlistModal({
             </div>
 
             <h2 className="text-2xl font-bold text-white text-center mb-2">
-              Join the Waitlist
+              {copy.title}
             </h2>
-            <p className="text-gray-400 text-center mb-6">
-              Be among the first to experience Teseract. Get early access and exclusive updates.
-            </p>
+            <p className="text-gray-400 text-center mb-6">{copy.subtitle}</p>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
@@ -116,7 +120,7 @@ export default function WaitlistModal({
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email"
+                  placeholder={copy.placeholder}
                   required
                   className="w-full px-4 py-3 rounded-lg bg-gray-800/50 border border-gray-700/50 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
                 />
@@ -130,23 +134,23 @@ export default function WaitlistModal({
                   className="mt-1 h-4 w-4 rounded border-gray-600 bg-gray-800 text-blue-500 focus:ring-blue-500/50"
                 />
                 <label htmlFor="consent" className="leading-relaxed">
-                  I agree to the{' '}
+                  {copy.consent.prefix}{" "}
                   <Link
-                    href="/terms"
+                    href={`/${locale}/terms`}
                     className="text-blue-300 hover:text-blue-200 underline underline-offset-2"
                     target="_blank"
                   >
-                    Terms of Service
+                    {copy.consent.terms}
                   </Link>{' '}
-                  and{' '}
+                  {copy.consent.and}{" "}
                   <Link
-                    href="/privacy"
+                    href={`/${locale}/privacy`}
                     className="text-blue-300 hover:text-blue-200 underline underline-offset-2"
                     target="_blank"
                   >
-                    Privacy Policy
+                    {copy.consent.privacy}
                   </Link>
-                  .
+                  {copy.consent.suffix}
                 </label>
               </div>
               {error && (
@@ -169,11 +173,11 @@ export default function WaitlistModal({
                         d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                       />
                     </svg>
-                    Joining...
+                    {copy.submitting}
                   </>
                 ) : (
                   <>
-                    Get Early Access
+                    {copy.cta}
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                       <path d="M8 0L9.5 5.5L15 7L9.5 8.5L8 14L6.5 8.5L1 7L6.5 5.5L8 0Z" fill="currentColor" />
                     </svg>
@@ -191,10 +195,10 @@ export default function WaitlistModal({
                 </svg>
               </div>
             </div>
-            <h2 className="text-2xl font-bold text-white mb-2">You're in!</h2>
-            <p className="text-gray-400">
-              We'll send you an email when Teseract is ready.
-            </p>
+            <h2 className="text-2xl font-bold text-white mb-2">
+              {copy.successTitle}
+            </h2>
+            <p className="text-gray-400">{copy.successMessage}</p>
           </div>
         )}
       </div>

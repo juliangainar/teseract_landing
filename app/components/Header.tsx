@@ -1,13 +1,21 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
+import { Locale, resolveLocale } from "@/data/locales";
+import { Copy } from "@/data/types";
 
 interface HeaderProps {
+  locale?: Locale;
+  copy: Copy["header"];
   onGetAccess?: () => void;
 }
 
-export default function Header({ onGetAccess }: HeaderProps) {
+export default function Header({ locale = "en", copy, onGetAccess }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const nextLocale = useMemo(
+    () => (resolveLocale(locale) === "en" ? "es" : "en"),
+    [locale]
+  );
 
   return (
     <header className="w-full px-4 sm:px-6 py-4">
@@ -88,7 +96,7 @@ export default function Header({ onGetAccess }: HeaderProps) {
               Teseract
             </h1>
             <p className="text-gray-400 text-[10px] sm:text-xs font-normal hidden sm:block">
-              everything in one place
+              {copy.tagline}
             </p>
           </div>
         </div>
@@ -99,13 +107,13 @@ export default function Header({ onGetAccess }: HeaderProps) {
             href="#features"
             className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
           >
-            Features
+            {copy.nav.features}
           </a>
           <a
             href="#goals"
             className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
           >
-            Goals
+            {copy.nav.goals}
           </a>
           <a
             href="#ai-agent"
@@ -129,18 +137,25 @@ export default function Header({ onGetAccess }: HeaderProps) {
                 opacity="0.75"
               />
             </svg>
-            AI Financial Agent
+            {copy.nav.aiAgent}
           </a>
           <a
             href="#faq"
             className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
           >
-            FAQ
+            {copy.nav.faq}
           </a>
         </div>
 
         {/* Right: Action Buttons - Desktop */}
         <div className="hidden md:flex items-center gap-2 lg:gap-3">
+          <a
+            href={`/${nextLocale}`}
+            aria-label={copy.language.aria}
+            className="px-3 py-2 rounded-lg border border-blue-500/40 text-blue-100 hover:bg-blue-500/10 text-xs lg:text-sm transition-colors"
+          >
+            {copy.language.toggle}
+          </a>
           <button
             onClick={onGetAccess}
             className="px-4 lg:px-5 py-2 lg:py-2.5 rounded-lg bg-gradient-to-r from-blue-500 via-blue-500 to-blue-600 text-white hover:from-blue-400 hover:via-blue-500 hover:to-blue-600 transition-all flex items-center gap-2 shadow-[0_4px_14px_0_rgba(59,130,246,0.5)] hover:shadow-[0_6px_20px_0_rgba(59,130,246,0.6)] text-xs lg:text-sm font-medium relative overflow-hidden group"
@@ -162,9 +177,9 @@ export default function Header({ onGetAccess }: HeaderProps) {
               <circle cx="4" cy="12" r="0.5" fill="currentColor" />
             </svg>
             <span className="relative z-10 hidden lg:inline">
-              Join the waitlist
+              {copy.cta.full}
             </span>
-            <span className="relative z-10 lg:hidden">Get access</span>
+            <span className="relative z-10 lg:hidden">{copy.cta.short}</span>
           </button>
         </div>
 
@@ -213,33 +228,39 @@ export default function Header({ onGetAccess }: HeaderProps) {
               onClick={() => setIsMenuOpen(false)}
               className="text-gray-300 hover:text-white transition-colors text-sm font-medium py-2"
             >
-              AI Financial Agent
+              {copy.nav.aiAgent}
             </a>
             <a
               href="#features"
               onClick={() => setIsMenuOpen(false)}
               className="text-gray-300 hover:text-white transition-colors text-sm font-medium py-2"
             >
-              Features
+              {copy.nav.features}
             </a>
             <a
               href="#goals"
               onClick={() => setIsMenuOpen(false)}
               className="text-gray-300 hover:text-white transition-colors text-sm font-medium py-2"
             >
-              Goals
+              {copy.nav.goals}
             </a>
             <a
               href="#faq"
               onClick={() => setIsMenuOpen(false)}
               className="text-gray-300 hover:text-white transition-colors text-sm font-medium py-2"
             >
-              FAQ
+              {copy.nav.faq}
             </a>
           </div>
 
           {/* Action Buttons */}
           <div className="flex flex-col gap-3 pt-4 border-t border-gray-700/50">
+            <a
+              href={`/${nextLocale}`}
+              className="w-full px-4 py-2.5 rounded-lg border border-blue-500/30 text-blue-100 hover:bg-blue-500/10 transition-colors text-sm font-medium text-center"
+            >
+              {copy.language.toggle}
+            </a>
             <button
               onClick={() => {
                 setIsMenuOpen(false);
@@ -262,7 +283,7 @@ export default function Header({ onGetAccess }: HeaderProps) {
                 <circle cx="12" cy="4" r="1" fill="currentColor" />
                 <circle cx="4" cy="12" r="0.5" fill="currentColor" />
               </svg>
-              <span className="relative z-10">Get early access</span>
+              <span className="relative z-10">{copy.cta.full}</span>
             </button>
           </div>
         </div>
